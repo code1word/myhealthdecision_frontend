@@ -1,8 +1,10 @@
 import React from "react";
 import "./SignUpPage.css";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 function SignUpPage() {
+  const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const handleEmailChange = (e) => {
     setEmail(e.target.value);
@@ -162,7 +164,14 @@ function SignUpPage() {
         Please read and accept the Terms of Use and Privacy Policy
       </label>
 
-      <div className="signup_page_save_continue">Save and continue</div>
+      <div
+        className="signup_page_save_continue"
+        onClick={() => {
+          navigate("/search");
+        }}
+      >
+        Save and continue
+      </div>
     </div>
   );
 }
